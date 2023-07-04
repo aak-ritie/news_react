@@ -25,7 +25,9 @@ const News = (props) => {
     setLoading(false);
   };
   useEffect(() => {
+    document.title = `${capitalizeFirstLetter(props.category)} - NewsMonkey`;
     updateNews();
+    //eslint-disable-next-line
   }, []); // jun kura run vayec vitra ko function which is effect run vaos vanni kura lekhinxa yo big bracket ma
 
   // const handlePrevClick = async () => {
@@ -39,8 +41,13 @@ const News = (props) => {
   // };
 
   const fetchMoreData = async () => {
+    const url = `https://newsapi.org/v2/top-headlines?country=${
+      props.country
+    }&category=${props.category}&apiKey=8b49c2cd16df4ff18e97557a2564eae0&page=${
+      page + 1
+    }&pageSize=${props.pageSize}`;
     setPage(page + 1);
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=8b49c2cd16df4ff18e97557a2564eae0&page=${page}&pageSize=${props.pageSize}`;
+
     let data = await fetch(url);
     let parsedData = await data.json();
     setArticles(articles.concat(parsedData.articles));
@@ -49,7 +56,10 @@ const News = (props) => {
 
   return (
     <>
-      <h1 className="text-center" style={{ margin: "35px 0px" }}>
+      <h1
+        className="text-center "
+        style={{ margin: "35px 0px", marginTop: "90px " }}
+      >
         NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines
       </h1>
       {loading && <Spinner />}

@@ -1,28 +1,35 @@
 import React from "react";
 
-const Item = (props) => {
-  let { title, description, img_url, newsUrl, author, date, source } = props; //if props is an object then tyo object bta yo duita pull garera title ra description ko place ma provide garxa.This is called destructuring
+const NewsItem = (props) => {
+  let { title, description, imageUrl, newsUrl, author, date, source } = props;
   return (
     <div className="my-3">
       <div className="card">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            position: "absolute",
+            right: "0",
+          }}
+        >
+          <span className="badge rounded-pill bg-danger"> {source} </span>
+        </div>
         <img
           src={
-            !img_url
-              ? "https://images.hindustantimes.com/tech/img/2023/06/30/1600x900/World_Asteroid_Day_2023_1688098248538_1688098248723.jpg"
-              : img_url
+            !imageUrl
+              ? "https://fdn.gsmarena.com/imgroot/news/21/08/xiaomi-smart-home-india-annoucnements/-476x249w4/gsmarena_00.jpg"
+              : imageUrl
           }
           className="card-img-top"
           alt="..."
         />
         <div className="card-body">
-          <h5 className="card-title">
-            {title}
-            <span className="badge bg-secondary">{source}</span>
-          </h5>
-          <p className="card-text">{description}...</p>
+          <h5 className="card-title">{title} </h5>
+          <p className="card-text">{description}</p>
           <p className="card-text">
             <small className="text-muted">
-              By {author ? author : "Unknown author"} on
+              By {!author ? "Unknown" : author} on{" "}
               {new Date(date).toGMTString()}
             </small>
           </p>
@@ -40,4 +47,4 @@ const Item = (props) => {
   );
 };
 
-export default Item;
+export default NewsItem;

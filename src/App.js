@@ -5,8 +5,9 @@ import News from "./component/News";
 import { Routes, Route } from "react-router-dom";
 
 const App = () => {
-  const [pageSize, setPageSize] = useState(8);
-  const [apiKey, setapiKey] = useState(process.env.apiKey);
+  const pageSize = 5;
+
+  const apiKey = process.env.apiKey;
 
   return (
     <div>
@@ -20,7 +21,7 @@ const App = () => {
               pageSize={pageSize}
               country="in"
               category="general"
-              apikey={this.apiKey}
+              apikey={apiKey}
             ></News>
           }
         ></Route>
@@ -32,7 +33,7 @@ const App = () => {
               pageSize={pageSize}
               country="in"
               category="business"
-              apikey={this.apiKey}
+              apikey={apiKey}
             ></News>
           }
         ></Route>
@@ -44,7 +45,7 @@ const App = () => {
               pageSize={pageSize}
               country="in"
               category="entertainment"
-              apikey={this.apiKey}
+              apikey={apiKey}
             ></News>
           }
         ></Route>
@@ -56,7 +57,7 @@ const App = () => {
               pageSize={pageSize}
               country="in"
               category="general"
-              apikey={this.apiKey}
+              apikey={apiKey}
             ></News>
           }
         ></Route>
@@ -68,7 +69,7 @@ const App = () => {
               pageSize={pageSize}
               country="in"
               category="health"
-              apikey={this.apiKey}
+              apikey={apiKey}
             ></News>
           }
         ></Route>
@@ -80,7 +81,7 @@ const App = () => {
               pageSize={pageSize}
               country="in"
               category="science"
-              apikey={this.apiKey}
+              apikey={apiKey}
             ></News>
           }
         ></Route>
@@ -92,7 +93,7 @@ const App = () => {
               pageSize={pageSize}
               country="in"
               category="sports"
-              apiKey={this.apiKey}
+              apiKey={apiKey}
             ></News>
           }
         ></Route>
@@ -104,7 +105,7 @@ const App = () => {
               pageSize={pageSize}
               country="in"
               category="technology"
-              apikey={this.apiKey}
+              apikey={apiKey}
             ></News>
           }
         ></Route>
@@ -112,3 +113,4 @@ const App = () => {
     </div>
   );
 };
+export default App;
